@@ -89,7 +89,7 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * @param atTop Whether the ProgressBar shoudl be displayed at the top edge of
+     * @param atTop Whether the ProgressBar should be displayed at the top edge of
      *              the Toolbar or at the bottom edge
      */
     public void setProgressAtTop(boolean atTop) {
@@ -101,11 +101,17 @@ public class ProgressToolbar extends Toolbar {
         }
     }
 
+    /**
+     * @return true if the ProgressBar is currently anchored to the top of the Toolbar
+     */
     public boolean isProgressAtTop() {
         final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
         return (lp.gravity & Gravity.VERTICAL_GRAVITY_MASK) == Gravity.TOP;
     }
 
+    /**
+     * @param progressHeight The height of the ProgressBar in pixels
+     */
     public void setProgressHeight(int progressHeight) {
         final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
         if (lp.height != progressHeight) {
@@ -114,6 +120,9 @@ public class ProgressToolbar extends Toolbar {
         }
     }
 
+    /**
+     * @return The current height of the ProgressBar in pixels
+     */
     public int getProgressHeight() {
         return mProgressBar.getLayoutParams().height;
     }
@@ -126,7 +135,7 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * Shows the ProgressBar.
+     * Hides the ProgressBar.
      *
      * @param animate Whether to animate the visibility change by scaling the ProgressBar and
      *                modifying the alpha value.
@@ -146,7 +155,7 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * Hides the ProgressBar.
+     * Shows the ProgressBar.
      *
      * @param animate Whether to animate the visibility change by scaling the ProgressBar and
      *                modifying the alpha value.
