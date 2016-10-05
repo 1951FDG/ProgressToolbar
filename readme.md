@@ -20,6 +20,7 @@ compile 'tk.wasdennnoch:progresstoolbar:1.0.1'
 ```
 
 The `minSdkVersion` is `14`.
+The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar/changelog.md) .
 
 ### Usage
 
