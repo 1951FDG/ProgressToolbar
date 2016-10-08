@@ -77,11 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.determinate:
                 mProgressToolbar.setIndeterminate(false);
-                findViewById(R.id.progress).setEnabled(true);
                 break;
             case R.id.indeterminate:
                 mProgressToolbar.setIndeterminate(true);
-                findViewById(R.id.progress).setEnabled(false);
                 break;
             case R.id.top:
                 mProgressToolbar.setProgressAtTop(true);

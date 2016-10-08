@@ -18,6 +18,7 @@ package tk.wasdennnoch.progresstoolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -65,7 +66,6 @@ public class ProgressToolbar extends Toolbar {
         final int max = a.getInt(R.styleable.ProgressToolbar_android_max, 100);
         final int progress = a.getInt(R.styleable.ProgressToolbar_android_progress, 0);
         final int secondaryProgress = a.getInt(R.styleable.ProgressToolbar_android_secondaryProgress, 0);
-        a.recycle();
 
         final LayoutParams lp = new LayoutParams(
                 LayoutParams.MATCH_PARENT,
@@ -73,11 +73,17 @@ public class ProgressToolbar extends Toolbar {
                 Gravity.START | (atTop ? Gravity.TOP : Gravity.BOTTOM));
         mProgressBar = new AnimatedProgressBar(context, null, 0, R.style.ToolbarProgress);
         mProgressBar.setLayoutParams(lp);
+
+        if (a.hasValue(R.styleable.ProgressToolbar_android_tint))
+            mProgressBar.setProgressTintList(a.getColorStateList(R.styleable.ProgressToolbar_android_tint));
+
         mProgressBar.setIndeterminate(indeterminate);
         mProgressBar.setMax(max);
         mProgressBar.setProgress(progress);
         mProgressBar.setSecondaryProgress(secondaryProgress);
         addView(mProgressBar);
+
+        a.recycle();
     }
 
     /**
@@ -128,7 +134,25 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * Hides the ProgressBar without animation. Same as calling {@code getProgressBar().setVisibility(GONE)}
+     * Applies a tint to the progress drawable.
+     *
+     * @param list The tint to apply, may be {@code null} to clear tint
+     */
+    public void setProgressTintList(@Nullable ColorStateList list) {
+        mProgressBar.setProgressTintList(list);
+    }
+
+    /**
+     * Return the tint applied to the progress drawable, if specified.
+     *
+     * @return The tint applied to the progress drawable
+     */
+    public ColorStateList getProgressTintList() {
+        return mProgressBar.getProgressTintList();
+    }
+
+    /**
+     * Hides the ProgressBar without animation. Same as calling {@code getProgressBar().setVisibility(GONE)}.
      */
     public void hideProgress() {
         hideProgress(false);
@@ -138,7 +162,7 @@ public class ProgressToolbar extends Toolbar {
      * Hides the ProgressBar.
      *
      * @param animate Whether to animate the visibility change by scaling the ProgressBar and
-     *                modifying the alpha value.
+     *                modifying the alpha value
      */
     public void hideProgress(boolean animate) {
         if (animate)
@@ -148,7 +172,7 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * Shows the ProgressBar without animation. Same as calling {@code getProgressBar().setVisibility(VISIBLE)}
+     * Shows the ProgressBar without animation. Same as calling {@code getProgressBar().setVisibility(VISIBLE)}.
      */
     public void showProgress() {
         showProgress(false);
@@ -158,7 +182,7 @@ public class ProgressToolbar extends Toolbar {
      * Shows the ProgressBar.
      *
      * @param animate Whether to animate the visibility change by scaling the ProgressBar and
-     *                modifying the alpha value.
+     *                modifying the alpha value
      */
     public void showProgress(boolean animate) {
         if (animate)

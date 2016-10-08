@@ -4,7 +4,7 @@ ProgressToolbar is a library that adds a compact `Toolbar` widget which contains
 
 ### Why should I use this library?
 
-You can't directly place a ProgressBar at the bottom of a Toolbar; the Toolbar attempts to position all custom children between the title and the action buttons, resizing the title if necessary. You could just wrap the Toolbar and ProgressBar inside of a `FrameLayout`, but on the cost of performance and you'd have to manage the view initialization (`findViewById()`), the view management (showing, hiding) and the animations yourself.
+You can't directly place a ProgressBar at the bottom of a Toolbar; the Toolbar attempts to position all custom children between the title and the action buttons, resizing the title if necessary. You could just wrap the Toolbar and ProgressBar inside of a `FrameLayout`, but on the cost of performance and simplicity, you'd have to manage the view initialization (`findViewById()`), the view management (showing, hiding) and the animations yourself.
 This is why I created ProgressToolbar. It does all the heavy work such as modifying the code to position the ProgressBar for you and additionally adds some neat animations for showing/hiding it.
 
 ### Sample Project
@@ -16,12 +16,12 @@ You can download a sample app of this library here: https://github.com/wasdennno
 This library is available via jCenter. Simply add this to your `build.gradle` file:
 
 ```gradle
-compile 'tk.wasdennnoch:progresstoolbar:1.0.1'
+compile 'tk.wasdennnoch:progresstoolbar:1.0.2'
 ```
 
 The `minSdkVersion` is `14`.
 
-The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar/blob/master/changelog.md) .
+The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar/blob/master/changelog.md).
 
 ### Usage
 
@@ -42,17 +42,18 @@ Available XML tags and Java methods (getters not included):
 
 Tag / Method | Description
 ------------ | -------------
+`android:tint` / `setProgressTintList(ColorStateList)` | Apply a tint to the ProgressBar
 `android:indeterminate` / `setIndeterminate(boolean)` | Change the indeterminate mode for the ProgressBar
 `android:max` / `setMax(int)` | Set the maximum range of the ProgressBar
 `android:progress` / `setProgress(int)` | Set the current progress of the ProgressBar
 `android:secondaryProgress` / `setSecondaryProgress(int)` | Set the current secondary progress of the ProgressBar
 `ptb_progressAtTop` / `setProgressAtTop(boolean)` | Position the ProgressBar at the top of the Toolbar instead at the bottom
 `ptb_progressHeight` / `setProgressHeight(boolean)` | Set the height of the ProgressBar in pixels
-`getProgressBar()` | Get the displayed ProgressBar to allow further customization
 `hideProgress()` | Hide the ProgressBar without animation
 `hideProgress(boolean)` | Hide the ProgressBar, optionally with animation
 `showProgress()` | Show the ProgressBar without animation
 `showProgress(boolean)` | Show the ProgressBar, optionally with animation
+`getProgressBar()` | Get the displayed ProgressBar to allow further customization
 
 
 ## License
