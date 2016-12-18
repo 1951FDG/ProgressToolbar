@@ -21,7 +21,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Handler;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +34,6 @@ import tk.wasdennnoch.progresstoolbar.ProgressToolbar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
     private ProgressToolbar mProgressToolbar;
-    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mProgressToolbar = (ProgressToolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mProgressToolbar);
-        mHandler = new Handler();
 
         findViewById(R.id.determinate).setOnClickListener(this);
         findViewById(R.id.indeterminate).setOnClickListener(this);
@@ -58,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Cheap and dirty
         menu.add("Github")
                 .setIcon(R.drawable.ic_github)
                 .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -97,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mProgressToolbar.hideProgress();
                 mProgressToolbar.setIndeterminate(true);
                 mProgressToolbar.showProgress(true);
-                mHandler.postDelayed(mStartDemoRunnable, 2000);
+                mProgressToolbar.postDelayed(mStartDemoRunnable, 2000);
                 break;
         }
     }

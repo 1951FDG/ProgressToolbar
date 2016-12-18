@@ -16,7 +16,7 @@ You can download a sample app of this library here: https://github.com/wasdennno
 This library is available via jCenter. Simply add this to your `build.gradle` file:
 
 ```gradle
-compile 'tk.wasdennnoch:progresstoolbar:1.0.2'
+compile 'tk.wasdennnoch:progresstoolbar:1.0.3'
 ```
 
 The `minSdkVersion` is `14`.

@@ -18,7 +18,6 @@
 
     <style name="ToolbarProgress" parent="Widget.MaterialProgressBar.ProgressBar.Horizontal">
         <item name="mpb_progressStyle">horizontal</item>
-        <item name="mpb_tintMode">src_in</item>
         <item name="mpb_useIntrinsicPadding">false</item>
         <item name="mpb_setBothDrawables">true</item>
         <item name="android:indeterminate">false</item>
