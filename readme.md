@@ -4,7 +4,7 @@ ProgressToolbar is a library that adds a compact `Toolbar` widget which contains
 
 ### Why should I use this library?
 
-You can't directly place a ProgressBar at the bottom of a Toolbar; the Toolbar attempts to position all custom children between the title and the action buttons, resizing the title if necessary. You could just wrap the Toolbar and ProgressBar inside of a `FrameLayout`, but on the cost of performance and simplicity, you'd have to manage the view initialization (`findViewById()`), the view management (showing, hiding) and the animations yourself.
+You can't directly place a ProgressBar at the bottom of a Toolbar; the Toolbar attempts to position all custom children between the title and the action buttons, resizing the title if necessary. You could just wrap the Toolbar and ProgressBar inside of a `FrameLayout`, but on the cost of simplicity, you'd have to manage the view initialization (`findViewById()`) and the animations yourself.
 This is why I created ProgressToolbar. It does all the heavy work such as modifying the code to position the ProgressBar for you and additionally adds some neat animations for showing/hiding it.
 
 ### Sample Project
