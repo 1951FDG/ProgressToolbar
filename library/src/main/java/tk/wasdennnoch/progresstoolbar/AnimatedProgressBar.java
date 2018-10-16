@@ -13,7 +13,7 @@ import android.view.animation.Interpolator;
 
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
-class AnimatedProgressBar extends MaterialProgressBar {
+public class AnimatedProgressBar extends MaterialProgressBar {
 
     private static final Interpolator FAST_OUT_LINEAR_IN = new FastOutLinearInInterpolator();
     private static final Interpolator LINEAR_OUT_SLOW_IN = new LinearOutSlowInInterpolator();
