@@ -90,7 +90,7 @@ public class ProgressToolbar extends Toolbar {
      * @return The ProgressBar displayed in the Toolbar to allow further customization
      */
     @NonNull
-    public ProgressBar getProgressBar() {
+    public AnimatedProgressBar getProgressBar() {
         return mProgressBar;
     }
 
