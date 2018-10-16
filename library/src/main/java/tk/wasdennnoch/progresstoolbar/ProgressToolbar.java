@@ -20,10 +20,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -35,7 +35,7 @@ import android.widget.ProgressBar;
  * material-styled ProgressBar to persist the same look across various Android versions.
  * It also forwards methods to directly control the most important values of a
  * ProgressBar such as the max value, current value, indeterminate state and visibility.
- * Aditionally a direct reference to the ProgressBa can be aqured using {@link #getProgressBar()}.
+ * Additionally a direct reference to the ProgressBar can be acquired using {@link #getProgressBar()}.
  */
 public class ProgressToolbar extends Toolbar {
 
@@ -47,7 +47,7 @@ public class ProgressToolbar extends Toolbar {
     }
 
     public ProgressToolbar(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.toolbarStyle);
+        this(context, attrs, androidx.appcompat.R.attr.toolbarStyle);
     }
 
     @SuppressLint("PrivateResource")
@@ -55,8 +55,8 @@ public class ProgressToolbar extends Toolbar {
         super(context, attrs, defStyleAttr);
 
         final TypedArray toolbarAttrs = context.obtainStyledAttributes(attrs,
-                android.support.v7.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
-        mGravity = toolbarAttrs.getInteger(android.support.v7.appcompat.R.styleable.Toolbar_android_gravity, mGravity);
+                androidx.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
+        mGravity = toolbarAttrs.getInteger(androidx.appcompat.R.styleable.Toolbar_android_gravity, mGravity);
         toolbarAttrs.recycle();
 
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressToolbar);

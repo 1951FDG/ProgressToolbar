@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "tk.wasdennnoch.progresstoolbar.sample"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 4
         versionName "1.0.3"
     }
@@ -20,5 +19,6 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    implementation project(':library')
+    implementation "com.google.android.material:material:1.0.0"
 }
