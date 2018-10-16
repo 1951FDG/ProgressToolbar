@@ -9,14 +9,14 @@ This is why I created ProgressToolbar. It does all the heavy work such as modify
 
 ### Sample Project
 
-You can download a sample app of this library here: https://github.com/wasdennnoch/progresstoolbar/blob/master/sample/sample-release.apk?raw=true
+You can download a sample app of this library here: https://github.com/1951FDG/ProgressToolbar/blob/master/sample/sample-release.apk?raw=true
 
 ### Integration
 
-This library is available via jCenter. Simply add this to your `build.gradle` file:
+This library is available via JitPack. Simply add this to your `build.gradle` file:
 
 ```gradle
-compile 'tk.wasdennnoch:progresstoolbar:1.0.3'
+implementation 'com.github.1951FDG:ProgressToolbar:1.0.5'
 ```
 
 The `minSdkVersion` is `14`.
@@ -25,7 +25,7 @@ The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar
 
 ### Usage
 
-The `ProgressToolbar` extends the support library's `android.support.v7.widget.Toolbar` which means you can replace any Toolbar you previously used with this one (if you are using AppCompat).
+The `ProgressToolbar` extends the support library's `androidx.appcompat.widget.Toolbar` which means you can replace any Toolbar you previously used with this one (if you are using AppCompat).
 The integrated `ProgressBar` uses the library [MaterialProgressBar](https://github.com/DreaminginCodeZH/MaterialProgressBar) to achieve a consistent Material-like look across all supported Android versions.
 
 ```xml
@@ -59,7 +59,7 @@ Tag / Method | Description
 ## License
 
 ```
-Copyright 2016 MrWasdennnoch@xda
+Copyright 2016 MrWasdennnoch@xda Copyright 2018 1951FDG
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
