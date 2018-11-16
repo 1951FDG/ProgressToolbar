@@ -1,4 +1,5 @@
 # ProgressToolbar
+[![JitPack](https://img.shields.io/jitpack/v/1951FDG/ProgressToolbar.svg)](https://jitpack.io/#1951FDG/ProgressToolbar)
 
 ProgressToolbar is a library that adds a compact `Toolbar` widget which contains an animatable `ProgressBar`.
 
