@@ -27,7 +27,7 @@ android {
 }
 
 dependencies {
-    api 'me.zhanghai.android.materialprogressbar:library:1.4.2'
+    api 'me.zhanghai.android.materialprogressbar:library:1.6.1'
 }
 
 apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
