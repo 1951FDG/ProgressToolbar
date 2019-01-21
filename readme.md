@@ -1,4 +1,5 @@
 # ProgressToolbar
+
 [![JitPack](https://img.shields.io/jitpack/v/1951FDG/ProgressToolbar.svg)](https://jitpack.io/#1951FDG/ProgressToolbar)
 
 ProgressToolbar is a library that adds a compact `Toolbar` widget which contains an animatable `ProgressBar`.
@@ -10,7 +11,7 @@ This is why I created ProgressToolbar. It does all the heavy work such as modify
 
 ### Sample Project
 
-You can download a sample app of this library here: https://github.com/1951FDG/ProgressToolbar/blob/master/sample/sample-release.apk?raw=true
+You can download a sample app of this library [here](https://github.com/1951FDG/ProgressToolbar/releases).
 
 ### Integration
 
@@ -41,36 +42,33 @@ The integrated `ProgressBar` uses the library [MaterialProgressBar](https://gith
 
 Available XML tags and Java methods (getters not included):
 
-Tag / Method | Description
------------- | -------------
-`android:tint` / `setProgressTintList(ColorStateList)` | Apply a tint to the ProgressBar
-`android:indeterminate` / `setIndeterminate(boolean)` | Change the indeterminate mode for the ProgressBar
-`android:max` / `setMax(int)` | Set the maximum range of the ProgressBar
-`android:progress` / `setProgress(int)` | Set the current progress of the ProgressBar
-`android:secondaryProgress` / `setSecondaryProgress(int)` | Set the current secondary progress of the ProgressBar
-`ptb_progressAtTop` / `setProgressAtTop(boolean)` | Position the ProgressBar at the top of the Toolbar instead at the bottom
-`ptb_progressHeight` / `setProgressHeight(boolean)` | Set the height of the ProgressBar in pixels
-`hideProgress()` | Hide the ProgressBar without animation
-`hideProgress(boolean)` | Hide the ProgressBar, optionally with animation
-`showProgress()` | Show the ProgressBar without animation
-`showProgress(boolean)` | Show the ProgressBar, optionally with animation
-`getProgressBar()` | Get the displayed ProgressBar to allow further customization
-
+| Tag / Method                                              | Description                                                              |
+| --------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `android:tint` / `setProgressTintList(ColorStateList)`    | Apply a tint to the ProgressBar                                          |
+| `android:indeterminate` / `setIndeterminate(boolean)`     | Change the indeterminate mode for the ProgressBar                        |
+| `android:max` / `setMax(int)`                             | Set the maximum range of the ProgressBar                                 |
+| `android:progress` / `setProgress(int)`                   | Set the current progress of the ProgressBar                              |
+| `android:secondaryProgress` / `setSecondaryProgress(int)` | Set the current secondary progress of the ProgressBar                    |
+| `ptb_progressAtTop` / `setProgressAtTop(boolean)`         | Position the ProgressBar at the top of the Toolbar instead at the bottom |
+| `ptb_progressHeight` / `setProgressHeight(boolean)`       | Set the height of the ProgressBar in pixels                              |
+| `hideProgress()`                                          | Hide the ProgressBar without animation                                   |
+| `hideProgress(boolean)`                                   | Hide the ProgressBar, optionally with animation                          |
+| `showProgress()`                                          | Show the ProgressBar without animation                                   |
+| `showProgress(boolean)`                                   | Show the ProgressBar, optionally with animation                          |
+| `getProgressBar()`                                        | Get the displayed ProgressBar to allow further customization             |
 
 ## License
 
-```
-Copyright 2016 MrWasdennnoch@xda Copyright 2018 1951FDG
+    Copyright 2016 MrWasdennnoch@xda Copyright 2018 1951FDG
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+        http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
