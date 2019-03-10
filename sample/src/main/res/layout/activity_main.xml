@@ -15,11 +15,10 @@
  * limitations under the License.
 -->
 
-<LinearLayout
-    android:id="@+id/activity_main"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -30,10 +29,10 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbarColor"
-        android:progress="250"
         android:max="500"
+        android:progress="250"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -56,14 +55,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Determinate"/>
+                    android:text="Determinate" />
 
                 <Button
                     android:id="@+id/indeterminate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Indeterminate"/>
+                    android:text="Indeterminate" />
 
             </LinearLayout>
 
@@ -71,14 +70,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Progress"/>
+                android:text="Progress" />
 
             <SeekBar
                 android:id="@+id/progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="500"
-                android:progress="250"/>
+                android:progress="250" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,14 +90,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Top"/>
+                    android:text="Top" />
 
                 <Button
                     android:id="@+id/bottom"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Bottom"/>
+                    android:text="Bottom" />
 
             </LinearLayout>
 
@@ -106,14 +105,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Height in dp (default: 3)"/>
+                android:text="Height in dp (default: 3)" />
 
             <SeekBar
                 android:id="@+id/height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="25"
-                android:progress="3"/>
+                android:progress="3" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,14 +125,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Show"/>
+                    android:text="Show" />
 
                 <Button
                     android:id="@+id/hide"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="Hide"/>
+                    android:text="Hide" />
 
             </LinearLayout>
 
@@ -142,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Demo"/>
+                android:text="Demo" />
 
         </LinearLayout>
 

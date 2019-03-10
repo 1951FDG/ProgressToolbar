@@ -40,6 +40,7 @@ import android.widget.ProgressBar;
 public class ProgressToolbar extends Toolbar {
 
     private int mGravity = GravityCompat.START | Gravity.CENTER_VERTICAL;
+
     private final AnimatedProgressBar mProgressBar;
 
     public ProgressToolbar(Context context) {
@@ -53,12 +54,9 @@ public class ProgressToolbar extends Toolbar {
     @SuppressLint("PrivateResource")
     public ProgressToolbar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-        final TypedArray toolbarAttrs = context.obtainStyledAttributes(attrs,
-                androidx.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
+        final TypedArray toolbarAttrs = context.obtainStyledAttributes(attrs, androidx.appcompat.R.styleable.Toolbar, defStyleAttr, 0);
         mGravity = toolbarAttrs.getInteger(androidx.appcompat.R.styleable.Toolbar_android_gravity, mGravity);
         toolbarAttrs.recycle();
-
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ProgressToolbar);
         final boolean atTop = a.getBoolean(R.styleable.ProgressToolbar_ptb_progressAtTop, false);
         final int progHeight = a.getDimensionPixelSize(R.styleable.ProgressToolbar_ptb_progressHeight, -1);
@@ -66,24 +64,36 @@ public class ProgressToolbar extends Toolbar {
         final int max = a.getInt(R.styleable.ProgressToolbar_android_max, 100);
         final int progress = a.getInt(R.styleable.ProgressToolbar_android_progress, 0);
         final int secondaryProgress = a.getInt(R.styleable.ProgressToolbar_android_secondaryProgress, 0);
-
-        final LayoutParams lp = new LayoutParams(
-                LayoutParams.MATCH_PARENT,
+        final LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,
                 progHeight != -1 ? progHeight : context.getResources().getDimensionPixelSize(R.dimen.toolbar_progress_height),
                 Gravity.START | (atTop ? Gravity.TOP : Gravity.BOTTOM));
         mProgressBar = new AnimatedProgressBar(context, null, 0, R.style.ToolbarProgress);
         mProgressBar.setLayoutParams(lp);
-
-        if (a.hasValue(R.styleable.ProgressToolbar_android_tint))
+        if (a.hasValue(R.styleable.ProgressToolbar_android_tint)) {
             mProgressBar.setProgressTintList(a.getColorStateList(R.styleable.ProgressToolbar_android_tint));
-
+        }
         mProgressBar.setIndeterminate(indeterminate);
         mProgressBar.setMax(max);
         mProgressBar.setProgress(progress);
         mProgressBar.setSecondaryProgress(secondaryProgress);
         addView(mProgressBar);
-
         a.recycle();
+    }
+
+    public int getMax() {
+        return mProgressBar.getMax();
+    }
+
+    public void setMax(int max) {
+        mProgressBar.setMax(max);
+    }
+
+    public int getProgress() {
+        return mProgressBar.getProgress();
+    }
+
+    public void setProgress(int progress) {
+        mProgressBar.setProgress(progress);
     }
 
     /**
@@ -95,24 +105,10 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * @param atTop Whether the ProgressBar should be displayed at the top edge of
-     *              the Toolbar or at the bottom edge
+     * @return The current height of the ProgressBar in pixels
      */
-    public void setProgressAtTop(boolean atTop) {
-        final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
-        int desiredGravity = Gravity.START | (atTop ? Gravity.TOP : Gravity.BOTTOM);
-        if (lp.gravity != desiredGravity) {
-            lp.gravity = desiredGravity;
-            mProgressBar.setLayoutParams(lp);
-        }
-    }
-
-    /**
-     * @return true if the ProgressBar is currently anchored to the top of the Toolbar
-     */
-    public boolean isProgressAtTop() {
-        final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
-        return (lp.gravity & Gravity.VERTICAL_GRAVITY_MASK) == Gravity.TOP;
+    public int getProgressHeight() {
+        return mProgressBar.getLayoutParams().height;
     }
 
     /**
@@ -127,10 +123,12 @@ public class ProgressToolbar extends Toolbar {
     }
 
     /**
-     * @return The current height of the ProgressBar in pixels
+     * Return the tint applied to the progress drawable, if specified.
+     *
+     * @return The tint applied to the progress drawable
      */
-    public int getProgressHeight() {
-        return mProgressBar.getLayoutParams().height;
+    public ColorStateList getProgressTintList() {
+        return mProgressBar.getProgressTintList();
     }
 
     /**
@@ -142,13 +140,12 @@ public class ProgressToolbar extends Toolbar {
         mProgressBar.setProgressTintList(list);
     }
 
-    /**
-     * Return the tint applied to the progress drawable, if specified.
-     *
-     * @return The tint applied to the progress drawable
-     */
-    public ColorStateList getProgressTintList() {
-        return mProgressBar.getProgressTintList();
+    public int getSecondaryProgress() {
+        return mProgressBar.getSecondaryProgress();
+    }
+
+    public void setSecondaryProgress(int secondaryProgress) {
+        mProgressBar.setSecondaryProgress(secondaryProgress);
     }
 
     /**
@@ -165,10 +162,40 @@ public class ProgressToolbar extends Toolbar {
      *                modifying the alpha value
      */
     public void hideProgress(boolean animate) {
-        if (animate)
+        if (animate) {
             mProgressBar.setVisibilityAnimated(GONE);
-        else
+        } else {
             mProgressBar.setVisibility(GONE);
+        }
+    }
+
+    public boolean isIndeterminate() {
+        return mProgressBar.isIndeterminate();
+    }
+
+    public void setIndeterminate(boolean indeterminate) {
+        mProgressBar.setIndeterminate(indeterminate);
+    }
+
+    /**
+     * @return true if the ProgressBar is currently anchored to the top of the Toolbar
+     */
+    public boolean isProgressAtTop() {
+        final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
+        return (lp.gravity & Gravity.VERTICAL_GRAVITY_MASK) == Gravity.TOP;
+    }
+
+    /**
+     * @param atTop Whether the ProgressBar should be displayed at the top edge of
+     *              the Toolbar or at the bottom edge
+     */
+    public void setProgressAtTop(boolean atTop) {
+        final LayoutParams lp = (LayoutParams) mProgressBar.getLayoutParams();
+        int desiredGravity = Gravity.START | (atTop ? Gravity.TOP : Gravity.BOTTOM);
+        if (lp.gravity != desiredGravity) {
+            lp.gravity = desiredGravity;
+            mProgressBar.setLayoutParams(lp);
+        }
     }
 
     /**
@@ -185,44 +212,20 @@ public class ProgressToolbar extends Toolbar {
      *                modifying the alpha value
      */
     public void showProgress(boolean animate) {
-        if (animate)
+        if (animate) {
             mProgressBar.setVisibilityAnimated(VISIBLE);
-        else
+        } else {
             mProgressBar.setVisibility(VISIBLE);
+        }
     }
 
-    public void setMax(int max) {
-        mProgressBar.setMax(max);
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        removeView(mProgressBar);
+        super.onLayout(changed, l, t, r, b);
+        addView(mProgressBar);
+        layoutChildLeft(mProgressBar, l);
     }
-
-    public int getMax() {
-        return mProgressBar.getMax();
-    }
-
-    public void setProgress(int progress) {
-        mProgressBar.setProgress(progress);
-    }
-
-    public int getProgress() {
-        return mProgressBar.getProgress();
-    }
-
-    public void setSecondaryProgress(int secondaryProgress) {
-        mProgressBar.setSecondaryProgress(secondaryProgress);
-    }
-
-    public int getSecondaryProgress() {
-        return mProgressBar.getSecondaryProgress();
-    }
-
-    public void setIndeterminate(boolean indeterminate) {
-        mProgressBar.setIndeterminate(indeterminate);
-    }
-
-    public boolean isIndeterminate() {
-        return mProgressBar.isIndeterminate();
-    }
-
 
     /*
        Normally the Toolbar positions all custom children between the action buttons and the title,
@@ -236,34 +239,6 @@ public class ProgressToolbar extends Toolbar {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         addView(mProgressBar);
         measureChildCollapseMargins(mProgressBar, widthMeasureSpec, heightMeasureSpec);
-    }
-
-    private void measureChildCollapseMargins(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
-        final MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-        final int childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec,
-                getPaddingLeft() + getPaddingRight(), lp.width);
-        final int childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec,
-                getPaddingTop() + getPaddingBottom() + lp.topMargin + lp.bottomMargin, lp.height);
-        child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        removeView(mProgressBar);
-        super.onLayout(changed, l, t, r, b);
-        addView(mProgressBar);
-        layoutChildLeft(mProgressBar, l);
-    }
-
-    private int layoutChildLeft(View child, int left) {
-        final LayoutParams lp = (LayoutParams) child.getLayoutParams();
-        final int l = lp.leftMargin;
-        left += Math.max(0, l);
-        final int top = getChildTop(child);
-        final int childWidth = child.getMeasuredWidth();
-        child.layout(left, top, left + childWidth, top + child.getMeasuredHeight());
-        left += childWidth + lp.rightMargin;
-        return left;
     }
 
     private int getChildTop(View child) {
@@ -303,6 +278,25 @@ public class ProgressToolbar extends Toolbar {
             default:
                 return mGravity & Gravity.VERTICAL_GRAVITY_MASK;
         }
+    }
+
+    private int layoutChildLeft(View child, int left) {
+        final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+        final int l = lp.leftMargin;
+        left += Math.max(0, l);
+        final int top = getChildTop(child);
+        final int childWidth = child.getMeasuredWidth();
+        child.layout(left, top, left + childWidth, top + child.getMeasuredHeight());
+        left += childWidth + lp.rightMargin;
+        return left;
+    }
+
+    private void measureChildCollapseMargins(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
+        final MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
+        final int childWidthMeasureSpec = getChildMeasureSpec(parentWidthMeasureSpec, getPaddingLeft() + getPaddingRight(), lp.width);
+        final int childHeightMeasureSpec = getChildMeasureSpec(parentHeightMeasureSpec,
+                getPaddingTop() + getPaddingBottom() + lp.topMargin + lp.bottomMargin, lp.height);
+        child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
     }
 
 }

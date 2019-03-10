@@ -35,13 +35,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ProgressToolbar mProgressToolbar;
 
+    private final Runnable mStartDemoRunnable = new Runnable() {
+        @Override
+        public void run() {
+            startDemo();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mProgressToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mProgressToolbar);
-
         findViewById(R.id.determinate).setOnClickListener(this);
         findViewById(R.id.indeterminate).setOnClickListener(this);
         findViewById(R.id.top).setOnClickListener(this);
@@ -51,23 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.demo).setOnClickListener(this);
         ((SeekBar) findViewById(R.id.progress)).setOnSeekBarChangeListener(this);
         ((SeekBar) findViewById(R.id.height)).setOnSeekBarChangeListener(this);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Cheap and dirty
-        menu.add("Github")
-                .setIcon(R.drawable.ic_github)
-                .setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/wasdennnoch/ProgressToolbar")));
-                        return true;
-                    }
-                })
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add("Item").setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-        return true;
     }
 
     @Override
@@ -100,27 +89,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void startDemo() {
-        final ValueAnimator anim = ValueAnimator.ofInt(0, 500).setDuration(3000);
-        anim.setInterpolator(new FastOutLinearInInterpolator());
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Cheap and dirty
+        menu.add("Github").setIcon(R.drawable.ic_github).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                mProgressToolbar.setProgress((int) animation.getAnimatedValue());
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/wasdennnoch/ProgressToolbar")));
+                return true;
             }
-        });
-        anim.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                mProgressToolbar.setIndeterminate(false);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mProgressToolbar.hideProgress(true);
-            }
-        });
-        anim.start();
+        }).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add("Item").setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        return true;
     }
 
     @Override
@@ -143,11 +123,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onStopTrackingTouch(SeekBar seekBar) {
     }
 
-    private final Runnable mStartDemoRunnable = new Runnable() {
-        @Override
-        public void run() {
-            startDemo();
-        }
-    };
+    private void startDemo() {
+        final ValueAnimator anim = ValueAnimator.ofInt(0, 500).setDuration(3000);
+        anim.setInterpolator(new FastOutLinearInInterpolator());
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mProgressToolbar.setProgress((int) animation.getAnimatedValue());
+            }
+        });
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mProgressToolbar.hideProgress(true);
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                mProgressToolbar.setIndeterminate(false);
+            }
+        });
+        anim.start();
+    }
 
 }

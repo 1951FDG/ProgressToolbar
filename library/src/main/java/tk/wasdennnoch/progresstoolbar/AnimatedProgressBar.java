@@ -16,7 +16,22 @@ import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 public class AnimatedProgressBar extends MaterialProgressBar {
 
     private static final Interpolator FAST_OUT_LINEAR_IN = new FastOutLinearInInterpolator();
+
     private static final Interpolator LINEAR_OUT_SLOW_IN = new LinearOutSlowInInterpolator();
+
+    private final AnimatorListenerAdapter mGoneListener = new AnimatorListenerAdapter() {
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            setVisibility(GONE);
+        }
+    };
+
+    private final AnimatorListenerAdapter mInvisibleListener = new AnimatorListenerAdapter() {
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            setVisibility(INVISIBLE);
+        }
+    };
 
     public AnimatedProgressBar(Context context) {
         super(context);
@@ -42,7 +57,9 @@ public class AnimatedProgressBar extends MaterialProgressBar {
     }
 
     void setVisibilityAnimated(int v) {
-        if (getVisibility() == v) return;
+        if (getVisibility() == v) {
+            return;
+        }
         setVisibility(VISIBLE);
         final ViewPropertyAnimator animator = animate();
         animator.cancel();
@@ -52,12 +69,7 @@ public class AnimatedProgressBar extends MaterialProgressBar {
             case VISIBLE:
                 setAlpha(0);
                 setScaleY(0);
-                animator
-                        .setDuration(300L)
-                        .setInterpolator(LINEAR_OUT_SLOW_IN)
-                        .alpha(1)
-                        .scaleY(1)
-                        .setListener(null);
+                animator.setDuration(300L).setInterpolator(LINEAR_OUT_SLOW_IN).alpha(1).scaleY(1).setListener(null);
                 break;
             case INVISIBLE:
                 setAlpha(1);
@@ -72,19 +84,5 @@ public class AnimatedProgressBar extends MaterialProgressBar {
         }
         animator.start();
     }
-
-    private final AnimatorListenerAdapter mInvisibleListener = new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            setVisibility(INVISIBLE);
-        }
-    };
-
-    private final AnimatorListenerAdapter mGoneListener = new AnimatorListenerAdapter() {
-        @Override
-        public void onAnimationEnd(Animator animation) {
-            setVisibility(GONE);
-        }
-    };
 
 }

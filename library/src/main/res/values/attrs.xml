@@ -17,13 +17,13 @@
 <resources>
 
     <declare-styleable name="ProgressToolbar">
-        <attr name="ptb_progressAtTop" format="boolean"/>
-        <attr name="ptb_progressHeight" format="dimension"/>
-        <attr name="android:tint"/>
-        <attr name="android:indeterminate"/>
-        <attr name="android:max"/>
-        <attr name="android:progress"/>
-        <attr name="android:secondaryProgress"/>
+        <attr name="ptb_progressAtTop" format="boolean" />
+        <attr name="ptb_progressHeight" format="dimension" />
+        <attr name="android:tint" />
+        <attr name="android:indeterminate" />
+        <attr name="android:max" />
+        <attr name="android:progress" />
+        <attr name="android:secondaryProgress" />
     </declare-styleable>
 
 </resources>
