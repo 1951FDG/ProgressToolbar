@@ -3,13 +3,14 @@ package tk.wasdennnoch.progresstoolbar;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
-import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
-import androidx.appcompat.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewPropertyAnimator;
 import android.view.animation.Interpolator;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
@@ -84,5 +85,4 @@ public class AnimatedProgressBar extends MaterialProgressBar {
         }
         animator.start();
     }
-
 }

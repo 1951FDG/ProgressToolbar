@@ -20,14 +20,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 
 /**
  * A subclass of {@link Toolbar} which allows a {@link ProgressBar} to be displayed
@@ -39,9 +40,9 @@ import android.widget.ProgressBar;
  */
 public class ProgressToolbar extends Toolbar {
 
-    private int mGravity = GravityCompat.START | Gravity.CENTER_VERTICAL;
-
     private final AnimatedProgressBar mProgressBar;
+
+    private int mGravity = GravityCompat.START | Gravity.CENTER_VERTICAL;
 
     public ProgressToolbar(Context context) {
         this(context, null);
@@ -296,5 +297,4 @@ public class ProgressToolbar extends Toolbar {
                 getPaddingTop() + getPaddingBottom() + lp.topMargin + lp.bottomMargin, lp.height);
         child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
     }
-
 }

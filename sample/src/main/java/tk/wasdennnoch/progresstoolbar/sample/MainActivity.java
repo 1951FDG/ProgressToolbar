@@ -22,13 +22,14 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 
 import tk.wasdennnoch.progresstoolbar.ProgressToolbar;
 
@@ -147,5 +148,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         anim.start();
     }
-
 }
