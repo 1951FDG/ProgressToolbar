@@ -1,5 +1,6 @@
 # ProgressToolbar
 
+[![API](https://img.shields.io/badge/API-16%2B-blue.svg)](https://android-arsenal.com/api?level=16)
 [![JitPack](https://img.shields.io/jitpack/v/1951FDG/ProgressToolbar.svg)](https://jitpack.io/#1951FDG/ProgressToolbar)
 
 ProgressToolbar is a library that adds a compact `Toolbar` widget which contains an animatable `ProgressBar`.
@@ -18,10 +19,10 @@ You can download a sample app of this library [here](https://github.com/1951FDG/
 This library is available via JitPack. Simply add this to your `build.gradle` file:
 
 ```gradle
-implementation 'com.github.1951FDG:ProgressToolbar:1.0.6'
+implementation 'com.github.1951FDG:ProgressToolbar:1.0.7'
 ```
 
-The `minSdkVersion` is `14`.
+The `minSdkVersion` is `16`.
 
 The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar/blob/master/changelog.md).
 
@@ -35,9 +36,7 @@ The integrated `ProgressBar` uses the library [MaterialProgressBar](https://gith
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    android:background="?attr/colorPrimary"/>
 ```
 
 Available XML tags and Java methods (getters not included):
@@ -59,7 +58,7 @@ Available XML tags and Java methods (getters not included):
 
 ## License
 
-    Copyright 2016 MrWasdennnoch@xda Copyright 2018 1951FDG
+    Copyright 2016 MrWasdennnoch@xda Copyright 2019 1951FDG
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

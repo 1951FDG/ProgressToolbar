@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu.add("Github").setIcon(R.drawable.ic_github).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://github.com/wasdennnoch/ProgressToolbar")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/1951FDG/ProgressToolbar")));
                 return true;
             }
         }).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
