@@ -70,7 +70,7 @@ public class ProgressToolbar extends Toolbar {
         mProgressBar = new AnimatedProgressBar(context, null, 0, R.style.ToolbarProgress);
         mProgressBar.setLayoutParams(lp);
         if (a.hasValue(R.styleable.ProgressToolbar_android_tint)) {
-            mProgressBar.setProgressTintList(a.getColorStateList(R.styleable.ProgressToolbar_android_tint));
+            mProgressBar.setSupportProgressTintList(a.getColorStateList(R.styleable.ProgressToolbar_android_tint));
         }
         mProgressBar.setIndeterminate(indeterminate);
         mProgressBar.setMax(max);
@@ -128,7 +128,7 @@ public class ProgressToolbar extends Toolbar {
      * @return The tint applied to the progress drawable
      */
     public ColorStateList getProgressTintList() {
-        return mProgressBar.getProgressTintList();
+        return mProgressBar.getSupportProgressTintList();
     }
 
     /**
@@ -137,7 +137,7 @@ public class ProgressToolbar extends Toolbar {
      * @param list The tint to apply, may be {@code null} to clear tint
      */
     public void setProgressTintList(@Nullable ColorStateList list) {
-        mProgressBar.setProgressTintList(list);
+        mProgressBar.setSupportProgressTintList(list);
     }
 
     public int getSecondaryProgress() {
@@ -280,15 +280,13 @@ public class ProgressToolbar extends Toolbar {
         }
     }
 
-    private int layoutChildLeft(View child, int left) {
+    private void layoutChildLeft(View child, int left) {
         final LayoutParams lp = (LayoutParams) child.getLayoutParams();
         final int l = lp.leftMargin;
         left += Math.max(0, l);
         final int top = getChildTop(child);
         final int childWidth = child.getMeasuredWidth();
         child.layout(left, top, left + childWidth, top + child.getMeasuredHeight());
-        left += childWidth + lp.rightMargin;
-        return left;
     }
 
     private void measureChildCollapseMargins(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
