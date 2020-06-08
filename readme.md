@@ -19,7 +19,7 @@ You can download a sample app of this library [here](https://github.com/1951FDG/
 This library is available via JitPack. Simply add this to your `build.gradle` file:
 
 ```gradle
-implementation 'com.github.1951FDG:ProgressToolbar:1.0.7'
+implementation 'com.github.1951FDG:ProgressToolbar:1.0.8'
 ```
 
 The `minSdkVersion` is `16`.
