@@ -21,5 +21,4 @@ android {
 
 dependencies {
     implementation project(':library')
-    implementation "com.google.android.material:material:1.0.0"
 }

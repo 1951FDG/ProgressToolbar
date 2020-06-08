@@ -27,18 +27,19 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
 /**
- * A subclass of {@link Toolbar} which allows a {@link ProgressBar} to be displayed
+ * A subclass of {@link MaterialToolbar} which allows a {@link ProgressBar} to be displayed
  * inside of it, either at the top or the bottom. It automatically uses a
  * material-styled ProgressBar to persist the same look across various Android versions.
  * It also forwards methods to directly control the most important values of a
  * ProgressBar such as the max value, current value, indeterminate state and visibility.
  * Additionally a direct reference to the ProgressBar can be acquired using {@link #getProgressBar()}.
  */
-public class ProgressToolbar extends Toolbar {
+public class ProgressToolbar extends MaterialToolbar {
 
     private final AnimatedProgressBar mProgressBar;
 
