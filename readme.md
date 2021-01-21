@@ -24,7 +24,7 @@ implementation 'com.github.1951FDG:ProgressToolbar:1.0.8'
 
 The `minSdkVersion` is `16`.
 
-The changelog can be found [here](https://github.com/wasdennnoch/ProgressToolbar/blob/master/changelog.md).
+The changelog can be found [here](https://github.com/1951FDG/ProgressToolbar/blob/master/changelog.md).
 
 ### Usage
 
