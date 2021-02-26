@@ -19,7 +19,7 @@ You can download a sample app of this library [here](https://github.com/1951FDG/
 This library is available via JitPack. Simply add this to your `build.gradle` file:
 
 ```gradle
-implementation 'com.github.1951FDG:ProgressToolbar:1.0.8'
+implementation 'com.github.1951FDG:ProgressToolbar:1.0.9'
 ```
 
 The `minSdkVersion` is `16`.
@@ -28,7 +28,7 @@ The changelog can be found [here](https://github.com/1951FDG/ProgressToolbar/blo
 
 ### Usage
 
-The `ProgressToolbar` extends the support library's `androidx.appcompat.widget.Toolbar` which means you can replace any Toolbar you previously used with this one (if you are using AppCompat).
+The `ProgressToolbar` extends `com.google.android.material.appbar.MaterialToolbar` which means you can replace any Toolbar you previously used with this one (if you are using AppCompat or Material Design Components).
 The integrated `ProgressBar` uses the library [MaterialProgressBar](https://github.com/DreaminginCodeZH/MaterialProgressBar) to achieve a consistent Material-like look across all supported Android versions.
 
 ```xml
@@ -55,19 +55,3 @@ Available XML tags and Java methods (getters not included):
 | `showProgress()`                                          | Show the ProgressBar without animation                                   |
 | `showProgress(boolean)`                                   | Show the ProgressBar, optionally with animation                          |
 | `getProgressBar()`                                        | Get the displayed ProgressBar to allow further customization             |
-
-## License
-
-    Copyright 2016 MrWasdennnoch@xda Copyright 2019 1951FDG
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
